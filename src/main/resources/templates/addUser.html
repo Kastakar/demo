@@ -1,0 +1,98 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title>List Employees</title>
+		
+		<link rel="stylesheet" 
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+			integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
+			crossorigin="anonymous" />
+			<script>
+				
+			function update()
+			{
+				         
+			
+			
+				         
+				         
+			}	
+				
+			</script>
+				
+				
+			
+			
+	</head>
+	
+	<body>
+		<div>
+			
+	
+
+
+
+
+			
+			
+			
+			
+			<a th:href="@{/pdf}"> Add User </a>
+			
+		</div>
+		
+		
+		<div class="container">
+		
+			<h3> List of Users </h3>
+			
+			<hr/>
+		
+			<table class="table table-bordered table-striped">
+			
+				<thead>
+		<tr>
+			
+		<th> UserId</th>
+		
+		<th> UserName</th>
+
+		<th> Mobile Number</th>
+
+		<th> Email Address</th>
+
+		<th> Active Switch </th>
+		
+		<th> Action </th>
+
+		</tr>
+				</thead>
+				<tbody>
+					<tr th:each="user: ${users}">
+						<td th:text="${user.userId}" />
+						<td th:text="${user.userName}" />
+					<td th:text="${user.mobileNumber}" />
+						<td th:text="${user.emailAddress}" />
+						<td th:text="${user.activeSwitch}" />
+						<span>
+						<td><input type="button" class="btn btn-primary" value="Update" onclick="update()" id="user">
+						<input type="button" class="btn btn-danger" value="Delete" id="user1">
+						</td>
+						</span>
+					</tr>
+				</tbody>
+				
+			</table>
+		</div>
+		
+		<div class="form-group blu-margin">
+    <select class="form-control"  id="dropOperator">
+    <option value="default">select User</option>
+    <option th:each="user : ${users}" th:value="${user.userId}" th:text="${user.userName}"></option>
+    </select>
+</div>
+	</body>
+	
+</html>
+
