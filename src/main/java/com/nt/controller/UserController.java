@@ -40,9 +40,11 @@ public class UserController {
 	@GetMapping("/userDetails")
 	public String userDetails(Model model)
 	{
+
+		
 		List<UserDetails> findAll = detailsRepo.findAll();
 		model.addAttribute("users", findAll);
-		System.out.println("-----------------------------------");
+		System.out.println("Added Changes");
 		
 		System.out.println(detailsRepo.findByCityIn(List.of("Rajura","Takali")));
 	
